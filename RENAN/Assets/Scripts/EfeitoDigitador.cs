@@ -11,6 +11,7 @@ public class EfeitoDigitador : MonoBehaviour
     public float tempoPadrao = 0.04f;
     public float pausaBreve = 0.09f;
     public float pausaLonga = 0.2f;
+    public bool imprimindo;
 
     private AudioSource som;
 
@@ -22,15 +23,17 @@ public class EfeitoDigitador : MonoBehaviour
         compTexto.text = " ";
     }
 
-    public void ExibirMensagem(string msg)
+    public void ImprimirMensagem(string mensagem)
     {
-        StartCoroutine(LetraPorLetra(msg));
+        if (imprimindo) return;
+        imprimindo = true;
+        StartCoroutine(LetraPorLetra(mensagem));
     }
 
     IEnumerator LetraPorLetra(string mensagem)
     {
         string msg = "";
-        foreach( var letra in mensagemOriginal)
+        foreach( var letra in mensagem)
         {
             msg += letra;
             compTexto.text = msg;
@@ -54,6 +57,13 @@ public class EfeitoDigitador : MonoBehaviour
                 yield return new WaitForSeconds(tempoPadrao);
             }
         }
+
+        imprimindo = false;
         StopCoroutine(LetraPorLetra(mensagem));
+    }
+
+    public void Limpar()
+    {
+        compTexto.text = "";
     }
 }
