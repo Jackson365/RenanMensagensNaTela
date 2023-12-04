@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager1 : MonoBehaviour
 {
     public EfeitoDigitador caixaDeDialogo;
     public GameObject botaoContinuar;

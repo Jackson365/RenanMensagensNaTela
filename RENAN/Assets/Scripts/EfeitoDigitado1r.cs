@@ -4,7 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EfeitoDigitador : MonoBehaviour
+public class EfeitoDigitador1 : MonoBehaviour
 {
     private TextMeshProUGUI compTexto;
     private string mensagemOriginal;
